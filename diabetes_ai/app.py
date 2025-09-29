@@ -20,19 +20,20 @@ scaler = joblib.load(SCALER_PATH)
 # Streamlit App
 # ------------------------------
 st.title("Prédiction du risque de diabète avec l’IA")
+st.title("Cours ADM3763 A00")
 
 # Input fields
-preg = st.number_input("Pregnancies", 0, 20, 1)
+preg = st.number_input("Grossesses", 0, 20, 1)
 gluc = st.number_input("Glucose", 0, 300, 120)
-bp   = st.number_input("Blood Pressure", 0, 200, 70)
-skin = st.number_input("Skin Thickness", 0, 100, 20)
-ins  = st.number_input("Insulin", 0, 900, 80)
-bmi  = st.number_input("BMI", 0.0, 70.0, 25.0)
-dpf  = st.number_input("Diabetes Pedigree Function", 0.0, 3.0, 0.5)
-age  = st.number_input("Age", 0, 120, 30)
+bp   = st.number_input("Tension artérielle", 0, 200, 70)
+skin = st.number_input("Épaisseur de la peau", 0, 100, 20)
+ins  = st.number_input("Insuline", 0, 900, 80)
+bmi  = st.number_input("IMC (Indice de Masse Corporelle)", 0.0, 70.0, 25.0)
+dpf  = st.number_input("Fonction de prédisposition au diabète", 0.0, 3.0, 0.5)
+age  = st.number_input("Âge", 0, 120, 30)
 
 # Predict button
-if st.button("Predict"):
+if st.button("Prédire"):
     # Create feature array and scale
     X = np.array([[preg, gluc, bp, skin, ins, bmi, dpf, age]])
     X_scaled = scaler.transform(X)
@@ -46,7 +47,8 @@ if st.button("Predict"):
     
     # Show risk status
     if pred == 1:
-        st.success("At risk (fictional)")
+        st.success("À risque")
     else:
 
-        st.info("Not at risk (fictional)")
+        st.info("Pas à risque")
+
