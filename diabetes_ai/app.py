@@ -19,7 +19,7 @@ scaler = joblib.load(SCALER_PATH)
 # ------------------------------
 # Streamlit App
 # ------------------------------
-st.title("Diabetes Risk Prediction Demo (Fictional)")
+st.title("Prédiction du risque de diabète avec l’IA")
 
 # Input fields
 preg = st.number_input("Pregnancies", 0, 20, 1)
@@ -48,4 +48,5 @@ if st.button("Predict"):
     if pred == 1:
         st.success("At risk (fictional)")
     else:
+
         st.info("Not at risk (fictional)")
