@@ -43,7 +43,7 @@ if st.button("Prédire"):
     pred = model.predict(X_scaled)[0]
     
     # Show probability
-    st.write(f"Estimated Probability: {proba:.2f}")
+    st.write(f"Probabilité estimée: {proba:.2f}")
     
     # Show risk status
     if pred == 1:
@@ -51,4 +51,5 @@ if st.button("Prédire"):
     else:
 
         st.info("Pas à risque")
+
 
